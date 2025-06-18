@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static("public"));
-
+app.use(mongoSanitize());
 
 //=======================
 //      O W A S P
@@ -59,7 +59,7 @@ app.use(express.json({ limit: '10kb' })); // Body limit is 10kb
 //=======================
 //      R O U T E S
 //=======================
-app,use(helmet()); 
+app.use(helmet());
 
 app.get("/", (req,res) =>{
     res.render("home");
